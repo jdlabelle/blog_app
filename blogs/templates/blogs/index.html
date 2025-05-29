@@ -1,9 +1,20 @@
 {% extends 'blogs/base.html' %}
 
+{% block page_header %}
+	<div class="p-3 mb-4 bg-light border rounded-3">
+		<div class="container-fluid py-4">
+			<h1 class="display-3">Share insights on your favorite topics.</h1>
+
+			<p class="lead">Blog Yo Self is an app for building a personal blog 
+			related to a topic you are interested in. Passionate about a subject or
+			want to share your experiences with others? Sign up and Blog Yo Self!</p>
+			<a class="btn btn-primary btn-lg mt-1"
+				 href="{% url 'accounts:register' %}">Register &raquo;</a>
+		</div>
+	</div>
+{% endblock page_header %}
+
 {% block content %}
-
-	<p>The blogs app is for building a personal blog related to a topic you are interested in.</p>
-
 
 	<p>Blogs:</p>
 	<ul>
