@@ -1,0 +1,33 @@
+{% extends 'blogs/base.html' %}
+
+{% block content %}
+
+	<p>The blogs app is for building a personal blog related to a topic you are interested in.</p>
+
+
+	<p>Blogs:</p>
+	<ul>
+		{% for blog in blogs %}
+			<li>{{ blog.name }}</li>
+			<ul>
+				{% for post in posts %}
+					{% if blog.name == post.blog.name %}
+						<li>
+							<a href="{% url 'blogs:post' post.id %}">
+								{{ post.title }}</a>
+						</li>
+					{% endif %}	
+				{% empty %}
+					<li>No posts have been added yet.</li>
+				{% endfor %}
+			</ul>
+		{% empty %}
+			<li>No blogs have been added yet.</li>
+		{% endfor %}
+	</ul>
+
+	<a href="{% url 'blogs:new_blog' %}">Add a new blog category</a>
+	<br>
+	<a href="{% url 'blogs:new_post' %}">Add a new post</a>
+
+{% endblock content %}

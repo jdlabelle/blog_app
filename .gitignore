@@ -1,0 +1,90 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.so
+
+# Environment
+.env
+.venv/
+venv/
+ENV/
+env.bak/
+env/
+
+# VSCode and other editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Django specific
+*.log
+*.pot
+*.pyc
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Migrations - Optional: uncomment to ignore all migrations
+# Be careful when working in teams
+# */migrations/
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# Media and static files
+media/
+staticfiles/
+static/
+
+# Coverage and testing
+htmlcov/
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+coverage.xml
+nosetests.xml
+test-results/
+
+# Build artifacts
+*.egg
+*.egg-info/
+dist/
+build/
+*.manifest
+*.spec
+
+# Pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Celery
+celerybeat-schedule
+
+# dotenv
+.env.*
+
+# Django Debug Toolbar
+debug_toolbar/
+
+# Docker
+*.pid
+*.pid.lock
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
+Thumbs.db
