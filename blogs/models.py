@@ -17,6 +17,11 @@ class Post(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def truncated_text(self, length=200):
+        if len(self.body) > length:
+            return f"{self.body[:length]}..."
+        return self.body
+
     class Meta:
         verbose_name_plural = 'posts'
 

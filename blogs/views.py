@@ -14,7 +14,8 @@ def index(request):
     blogs = Blog.objects.order_by('name')
     # reverse sorted so newest posts come first
     posts = Post.objects.order_by('-date_added')
-    context = {'blogs': blogs, 'posts': posts}
+    latest_post = Post.objects.latest('date_added')
+    context = {'blogs': blogs, 'posts': posts, 'latest_post': latest_post}
     return render(request, 'blogs/index.html', context)
 
 def post(request, post_id):

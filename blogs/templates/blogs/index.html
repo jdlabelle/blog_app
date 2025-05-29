@@ -15,6 +15,23 @@
 {% endblock page_header %}
 
 {% block content %}
+	<div class="p-4 md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+		<div class="px-0">
+			<h1 class="display-4 fst-italic">{{ latest_post.title }}</h1>
+			<p class="lead my-3">
+				{{ latest_post.truncated_text }}</p>
+			<p class="lead mb-0">
+				<a class="text-body-emphasis fw-bold" 
+					href="{% url 'blogs:post' latest_post.id %}">Continue reading...</a>
+			</p>
+		</div>
+	</div>
+{% endblock content %}
+
+
+
+
+{% block content1 %}
 
 	<p>Blogs:</p>
 	<ul>
@@ -41,4 +58,4 @@
 	<br>
 	<a href="{% url 'blogs:new_post' %}">Add a new post</a>
 
-{% endblock content %}
+{% endblock content1 %}
