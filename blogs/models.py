@@ -18,6 +18,11 @@ class Post(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def truncated_text(self, length=200):
+        """
+        Created a shortened version of post.body for index page display. I
+        later found out you can just you the bootstrap5 class option `text-truncate`,
+        or with the django filter `{{ value|truncatechars:<number> }}`.
+        """
         if len(self.body) > length:
             return f"{self.body[:length]}..."
         return self.body
