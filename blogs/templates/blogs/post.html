@@ -2,14 +2,24 @@
 
 {% block content %}
 
-	<h1>{{ post.title }}</h1>
-	<p> 
-		Blog: {{ post.blog }}<br>
-		Date: {{ post.date_added|date:'M d, Y' }}
-	</p>
-	<p>{{ post.body|linebreaks }}</p>
-	<p>
-		<a href="{% url 'blogs:edit_post' post.id %}">
-			Edit post</a></p>
+	<div class="card mb-3">
+		<h4 class="card-header"> 
+			{{ post.title }}
+			{% if user.is_authenticated %}
+				{% if user == post.owner %}
+					<small class="ps-3">
+						<a class="card-link" href="{% url 'blogs:edit_post' post.id %}">
+							Edit post</a></small>
+				{% endif %}
+			{% endif %}
+
+		</h4>
+		<!-- TODO: Make this a link to the category page -->
+		<h6 class="card-subtitle ps-3 pt-3 mb-2 text-body-secondary">
+			{{ post.date_added|date:'M d, Y' }} by {{ post.owner }}<br>
+			{{ post.blog }}
+		</h6>
+		<div class="card-body">{{ post.body|linebreaks }}</div>
+			</div>
 
 {% endblock content %}
