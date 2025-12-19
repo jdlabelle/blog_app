@@ -17,13 +17,17 @@
 {% block content %}
 	<div class="p-4 md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
 		<div class="px-0">
-			<h1 class="display-4 fst-italic">{{ latest_post.title }}</h1>
-			<p class="lead my-3">
-				{{ latest_post.truncated_text }}</p>
-			<p class="lead mb-0">
-				<a class="text-body-emphasis fw-bold" 
-					href="{% url 'blogs:post' latest_post.id %}">Continue reading...</a>
-			</p>
+			{% if latest_post %}
+				<h1 class="display-4 fst-italic">{{ latest_post.title }}</h1>
+				<p class="lead my-3">
+					{{ latest_post.truncated_text }}</p>
+				<p class="lead mb-0">
+					<a class="text-body-emphasis fw-bold"
+						href="{% url 'blogs:post' latest_post.id %}">Continue reading...</a>
+				</p>
+			{% else %}
+				<h1 class="display-4 fst-italic">No posts yet</h1>
+			{% endif %}
 		</div>
 	</div>
 	{% for post in posts|slice:"1:" %}
